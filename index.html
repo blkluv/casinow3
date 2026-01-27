@@ -3,24 +3,22 @@
 <html data-wf-page="60b0230e5fa08455d9f06085" data-wf-site="60b0230e5fa0847b66f06084">
 <head>
   <meta charset="utf-8">
-  <title>CASINOW3W | The Playas Club</title>
-	<meta name="description" content="Decentralized Social Networking
-Create, Reward & Secure any online community by harnessing the power of Solana">
+  <title>GENZ.CASINO | The New Social Media</title>
+	<meta name="description" content="The New Social Media for Casino Playas Content Creators on Blockchain">
 	<!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://casinow3w.com">
+<meta property="og:url" content="https://genz.casino">
 <meta property="og:type" content="website">
-<meta property="og:title" content="CASINOW3W">
+<meta property="og:title" content="GENZ.CASINO">
 <meta property="og:description" content="The Casino Playas
 Content Creator Game on Blockchain">
 <meta property="og:image" content="https://lh3.googleusercontent.com/Z-_LaBX5xR73J89pGY0_njc-vlvnzV9gkGclRdiPZFM6iQu00Oie3NJk8gxLgDgyjPaSTUPOokr23rldbnABT2xE3sM3rn3TfaYLOJQ=s768-v1">
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="casinow3w.com">
-<meta property="twitter:url" content="https://casinow3w.com">
-<meta name="twitter:title" content="CASINOW3W">
-<meta name="twitter:description" content="The Casino Playas
-Content Creator Game on Blockchain">
+<meta property="twitter:domain" content="genz.casino">
+<meta property="twitter:url" content="https://genz.casino">
+<meta name="twitter:title" content="GENZ.CASINO">
+<meta name="twitter:description" content="The New Social Media for Casino Playas Content Creators on Blockchain">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/Z-_LaBX5xR73J89pGY0_njc-vlvnzV9gkGclRdiPZFM6iQu00Oie3NJk8gxLgDgyjPaSTUPOokr23rldbnABT2xE3sM3rn3TfaYLOJQ=s768-v1">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
@@ -88,6 +86,174 @@ Content Creator Game on Blockchain">
     	transform: translate(53%, 20%) scale(0.55, 0.55);
     }
   }
+  
+  /* ===== GAME CARD CENTERING & BUTTONS ===== */
+  /* Center all content in game cards */
+  .features-card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 30px 20px 40px !important;
+    position: relative;
+  }
+
+  /* Center game icons */
+  .features-image {
+    margin: 0 auto 20px !important;
+    display: block;
+    max-width: 80px;
+    height: auto;
+  }
+
+  /* Center game titles */
+  .feature-title {
+    text-align: center !important;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  /* Game card text */
+  .features-card-list {
+    text-align: center !important;
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  .features-card-list li {
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  /* Dual button container */
+  .game-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin-top: 25px;
+    gap: 15px;
+  }
+
+  /* Individual game buttons */
+  .game-button {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 15px !important;
+    background: white !important;
+    color: black !important;
+    border: 2px solid #ddd !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Discord button specific styling */
+  .game-button.discord-button {
+    background: #5865F2 !important;
+    color: white !important;
+    border-color: #5865F2 !important;
+  }
+
+  /* Hover effects */
+  .game-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .game-button:not(.discord-button):hover {
+    background: #f8f8f8 !important;
+    border-color: #ccc !important;
+  }
+
+  .game-button.discord-button:hover {
+    background: #4752C4 !important;
+    border-color: #4752C4 !important;
+  }
+
+  /* Discord embed styling */
+  .discord-embed-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+
+  .discord-embed {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 991px) {
+    .game-buttons-container {
+      max-width: 280px;
+      gap: 12px;
+    }
+    
+    .game-button {
+      padding: 10px 12px !important;
+      font-size: 13px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .features-card-content-wrapper {
+      padding: 20px 15px 35px !important;
+    }
+    
+    .features-image {
+      max-width: 60px !important;
+      margin-bottom: 15px !important;
+    }
+    
+    .feature-title {
+      font-size: 20px !important;
+      margin-bottom: 15px !important;
+    }
+    
+    .game-buttons-container {
+      max-width: 260px;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .game-button {
+      padding: 8px 10px !important;
+      font-size: 12px !important;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .features-card-content-wrapper {
+      padding: 15px 10px 30px !important;
+    }
+    
+    .game-buttons-container {
+      max-width: 240px;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .game-button {
+      width: 100% !important;
+      padding: 10px 15px !important;
+      font-size: 13px !important;
+    }
+  }
 </style>
 </head>
 <body class="body">
@@ -95,13 +261,13 @@ Content Creator Game on Blockchain">
     <div class="container nav w-container">
       <a href="#" class="w-nav-brand"><img src="images/grape_logo.svg" loading="lazy" alt="Grape ape logo" class="logo"></a>
       <nav role="navigation" class="nav-menu w-nav-menu">
-        <a href="https://slot.casinow3w.com" target="_blank" class="nav-link w-nav-link">SLOT</a>
-	<a href="https://game.casinow3w.com" target="_blank" class="nav-link w-nav-link">GAME</a>
-        <a href="https://map.casinow3w.com" class="nav-link w-nav-link">MAP</a>
-        <a href="https://tiktok.com/casinow3w" class="nav-link w-nav-link">TIKTOK</a>
+        <a href="https://slot.genz.casino" target="_blank" class="nav-link w-nav-link">SLOT</a>
+	<a href="https://game.genz.casino" target="_blank" class="nav-link w-nav-link">GAME</a>
+        <a href="https://map.genz.casino" class="nav-link w-nav-link">MAP</a>
+        <a href="https://tiktok.com/genzcasino" class="nav-link w-nav-link">TIKTOK</a>
         <a href="https://fun.luvnft.com" class="nav-link w-nav-link">LUV NFT FUN</a>
         <div class="launch-wrapper">
-          <a href="https://www.bonfire.xyz/casinow3w/join" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">📺 TV<span class="icon carrot-right-icon">play_arrow</span></a>
+          <a href="https://zstream.genz.casino" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">📺 ZSTREAM<span class="icon carrot-right-icon">play_arrow</span></a>
         </div>
       </nav>
       <div class="menu-button w-nav-button">
@@ -118,7 +284,7 @@ Content Creator Game on Blockchain">
       <div class="hero-div">
         <h1 class="hero-heading"><span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a04" style="opacity:0" class="hero-connecting">GENZ.</span><span data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0a" style="opacity:0" class="hero-communities">CASINO</span></h1>
         <h2 data-w-id="f61cebd1-d94c-15d5-428d-b13ce0870a0c" style="opacity:0" class="secondary-heading">POV: You're on GENZ.casino—stream your plays, vibe in our metaverse, and squad up in Discord while chasing your next W. 🪙 Grab $GENZ on Solana to keep the lights on, the games free, and the vibes forever lit.</h2>
-	<a href="https://www.bonfire.xyz/casinow3w/join" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">📺 TV<span class="icon carrot-right-icon">play_arrow</span></a>
+	<a href="https://zstream.genz.casino" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">📺 ZSTREAM<span class="icon carrot-right-icon">play_arrow</span></a>
       </div>
     </div>
   </section>
@@ -151,7 +317,7 @@ Content Creator Game on Blockchain">
     }
   }
 </style>
-            <iframe src="https://fun.luvnft.com" class="discord-widget" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+            <iframe src="https://fun.luvnft.com" class="discord-widget" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" loading="lazy">
             </iframe>
           </div>
         </div>
@@ -159,9 +325,22 @@ Content Creator Game on Blockchain">
     </div>
   </div>
   <div class="section grape-access">
-    <h2 class="mb-20 grape-access-header">EASY AS 1,2,3</h2>
+    <h2 class="mb-20 grape-access-header">JOIN THE PLAYAS ON DISCORD</h2>
     <div class="container center">
-      <div style="padding-top:56.17021276595745%" class="w-embed-youtubevideo youtube"><iframe src="https://www.youtube.com/embed/Hb9tHBGSSqA?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0" frameborder="0" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:auto" allow="autoplay; encrypted-media" allowfullscreen=""></iframe></div>
+      <div class="discord-embed-container">
+        <div class="discord-embed">
+          <iframe 
+            src="https://discord.com/widget?id=910051231437819914&theme=dark" 
+            width="350" 
+            height="500" 
+            allowtransparency="true" 
+            frameborder="0" 
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+            loading="lazy"
+            title="GENZ.casino Discord">
+          </iframe>
+        </div>
+      </div>
     </div>
   </div>
   <div class="section hackthon">
@@ -189,6 +368,10 @@ Content Creator Game on Blockchain">
 	      <li class="mb-20">🔑 Only Playas - Gated videos, livestreams, and drops Content for only true casino Playas</li>
               <li class="mb-20">🎫 Playa Tribe - Memberships & Passes in the form of tiered memberships or season passes with premium perks.</li>
             </ul>
+            <div class="game-buttons-container">
+              <a href="https://game.genz.casino/snake" class="game-button">Play SNAKE</a>
+              <a href="https://discord.com/channels/910051231437819914/1241917001779773501" class="game-button discord-button">Snake Chat</a>
+            </div>
           </div>
         </div>
         <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
@@ -198,6 +381,10 @@ Content Creator Game on Blockchain">
 	      <li class="mb-20">📡 Livestreams – Host live shows, events with gated access for VIP audiences.</li>
               <li class="mb-20">🏆 Contests & Giveaways - Engage Playas with interactive voting and exclusive rewards.</li>
             </ul>
+            <div class="game-buttons-container">
+              <a href="https://game.genz.casino/ghost" class="game-button">Play GHOST</a>
+              <a href="https://discord.com/channels/910051231437819914/1241917001779773501" class="game-button discord-button">Ghost Chat</a>
+            </div>
           </div>
         </div>
         <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
@@ -207,6 +394,10 @@ Content Creator Game on Blockchain">
 	      <li class="mb-20">🛒 CasinoW3W shop - Sell digital casino merch, promo collectibles, and digital highlight win reels.</li>
               <li class="mb-20">📦 Digital gated content - Casino themed NFTs, casino memecoins, event tickets, and exclusive files downloads for Playas only.</li>
             </ul>
+            <div class="game-buttons-container">
+              <a href="https://game.genz.casino/dicesino" class="game-button">Play DICESINO</a>
+              <a href="https://discord.com/channels/910051231437819914/1241917001779773501" class="game-button discord-button">Dicesino Chat</a>
+            </div>
           </div>
         </div>
         <div id="w-node-a3304a0f-56e3-3666-95d7-302c55091b50-d9f06085" data-w-id="a3304a0f-56e3-3666-95d7-302c55091b50" style="opacity:0" class="features-card">
@@ -216,6 +407,10 @@ Content Creator Game on Blockchain">
 	      <li class="mb-20">💳 Monetization Tools – Earn through gated TV content, memberships, and branded digital merch sales.</li>
               <li class="mb-20">📊 Playa CRM & Analytics – Track engagement and segment your audience for targeted outreach.</li>
             </ul>
+            <div class="game-buttons-container">
+              <a href="https://game.genz.casino/dry-island" class="game-button">Play DRY ISLAND</a>
+              <a href="https://discord.com/channels/910051231437819914/1241917001779773501" class="game-button discord-button">Dry Island Chat</a>
+            </div>
           </div>
         </div>
         <div id="w-node-fda3d574-5176-7f9c-bd6e-c437aab5d6f1-d9f06085" data-w-id="fda3d574-5176-7f9c-bd6e-c437aab5d6f1" style="opacity:0" class="features-card">
@@ -225,6 +420,10 @@ Content Creator Game on Blockchain">
 	      <li class="mb-20">🎶 Casino Map – Join a tribe of CasinoW3W Playas building a casino map of highlight wins in real time. </li>
               <li class="mb-20">📀 Become a Playas Club member! Connect with fellow casino content creators, network, and collaborate to map out your go-to casino spots. </li>
             </ul>
+            <div class="game-buttons-container">
+              <a href="https://game.genz.casino/newark" class="game-button">Play NEWARK</a>
+              <a href="https://discord.com/channels/910051231437819914/1241917001779773501" class="game-button discord-button">Newark Chat</a>
+            </div>
           </div>
         </div>
         <div id="w-node-fddf9fca-70af-5158-5a17-e95a678ba6e5-d9f06085" data-w-id="fddf9fca-70af-5158-5a17-e95a678ba6e5" style="opacity:0" class="features-card">
@@ -234,14 +433,18 @@ Content Creator Game on Blockchain">
 		    <li class="mb-20">🎲 Interactive Contests – Create engaging challenges with rewards to boost casino interaction.</li>
                     <li class="mb-20">🕹️ Game-Integrated NFTs – Use NFTs for in-game perks, rewards, or access to exclusive digital merch content.</li>
             </ul>
+            <div class="game-buttons-container">
+              <a href="https://game.genz.casino/gamba" class="game-button">Play GAMBA</a>
+              <a href="https://discord.com/channels/910051231437819914/1241917001779773501" class="game-button discord-button">Gamba Chat</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
   <section id="tokenomics" data-w-id="aa68594d-0cc4-8050-d59c-4c45935c5826" style="opacity:0" class="section tokenomics">
-    <h2 class="mb-40 text-center">$COMP Tokenomics</h2>
-	 <center><a href="https://pump.fun/coin/9W9ADrQ6yBNqEHimL3RLVGcGV1CedyuF6wE3ku3ppump" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">🤑 BUY $COMP<span class="icon carrot-right-icon">play_arrow</span></a></center>
+    <h2 class="mb-40 text-center">$GENZ Tokenomics</h2>
+	 <center><a href="https://pump.fun/coin/9W9ADrQ6yBNqEHimL3RLVGcGV1CedyuF6wE3ku3ppump" data-w-id="36863b8f-4495-0f5d-9ca3-78226d2294f8" target="_blank" class="nav-button w-nav-link">🤑 BUY $GENZ<span class="icon carrot-right-icon">play_arrow</span></a></center>
     <div class="container roadmap">
       <h3 class="total-supply">Max Supply: 1.000.000.000</h3>
       <div class="chart-wrapper"></div>
@@ -250,16 +453,16 @@ Content Creator Game on Blockchain">
   <section id="roadmap" data-w-id="84cbfb2e-b86e-a6ba-2db7-cd329ddc1301" style="opacity:0" class="section">
     <div class="container roadmap">
 	    <a href="https://i.imgur.com/6Y07jCR.jpeg" target="_blank" class="social-icon">
-	    <img src="https://i.imgur.com/6Y07jCR.jpeg" alt="CasinoW3W Billboard" width="100%"></a>
+	    <img src="https://i.imgur.com/6Y07jCR.jpeg" alt="GENZ.casino Billboard" width="100%" loading="lazy"></a>
          </div>
   </section>
   <div class="footer-section">
     <div class="container footer">
       <div class="leftgrid">
-        <div class="text-block"><span class="great-ape">CASINOW3W</span><br>Powered by LUV NFT<br><span class="copyright"></span> 2025 CASINOW3W<br>‍</div>
+        <div class="text-block"><span class="great-ape">GENZ.CASINO</span><br>Powered by LUV NFT<br><span class="copyright">©</span> 2025 GENZ.CASINO<br>‍</div>
       </div>
       <div id="w-node-bb247140-920a-bbc0-09be-352db5d2000b-d9f06085" class="right-grid">
-        <a href="https://twitter.com/casinow3w" target="_blank" class="social-icon"></a>
+        <a href="https://twitter.com/genzcasino" target="_blank" class="social-icon"></a>
         <a href="https://medium.com/luvnft" target="_blank" class="social-icon margin-left"></a>
       </div>
     </div>
