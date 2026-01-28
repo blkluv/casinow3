@@ -1692,3 +1692,101 @@ li {
   font-style: normal;
   font-display: swap;
 }
+/* Complete mobile fix for hackathon/slot section */
+@media screen and (max-width: 767px) {
+  .section.hackthon {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 0 !important;
+  }
+  
+  .container.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Stack elements vertically */
+  .hackathon-box {
+    order: 1;
+    margin: 0 auto 30px !important;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  
+  .hackathon-header {
+    order: 2;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .hackathon-text {
+    order: 3;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0 20px;
+  }
+  
+  /* Slot button/arrow container */
+  .slot-container {
+    order: 4;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0 25px;
+    padding: 0 20px;
+  }
+  
+  .slot-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #f38aff, #6b51ff) !important;
+    color: white !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    box-shadow: 0 6px 20px rgba(107, 81, 255, 0.4) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  }
+  
+  .slot-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(107, 81, 255, 0.5) !important;
+  }
+  
+  .devnet-note {
+    order: 5;
+    width: 100%;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  
+  /* Remove any absolute positioning that causes overlap */
+  .bg-circle-gradient-1,
+  .bg-circle-gradient-2,
+  .bg-circle-gradient-3 {
+    display: none !important;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 479px) {
+  .slot-button {
+    padding: 12px 24px !important;
+    font-size: 18px !important;
+    max-width: 90%;
+  }
+  
+  .hackathon-box {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .hackathon-header h2 {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+}
