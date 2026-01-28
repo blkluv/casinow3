@@ -1790,3 +1790,68 @@ li {
     line-height: 1.2 !important;
   }
 }
+/* ===== CRITICAL FIXES FOR SLOT SECTION ===== */
+
+/* Hide problematic gradients on mobile */
+.mobile-hidden {
+  display: none !important;
+}
+
+/* New wrapper for proper stacking */
+.slot-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  gap: 30px;
+}
+
+/* Fix hackathon-box positioning */
+.hackathon-box {
+  position: relative !important;
+  width: 160px !important;
+  height: 160px !important;
+  margin: 0 auto 30px !important;
+  background: rgba(19, 21, 28, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+/* Fix the image inside */
+.s-image {
+  position: relative !important;
+  width: 80% !important;
+  height: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+/* Fix hackathon-header */
+.hackathon-header {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  padding: 40px 30px !important;
+  background: rgba(19, 21, 28, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  text-align: center !important;
+  margin: 0 !important;
+  z-index: 5 !important;
+}
+
+/* Fix text styling */
+.hackathon-text {
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 35px !important;
+  padding: 0 10px !important;
+  text-align
