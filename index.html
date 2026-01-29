@@ -4,22 +4,21 @@
 <head>
   <meta charset="utf-8">
   <title>GENZ.CASINO | The New Social Media</title>
-	<meta name="description" content="The New Social Media for Casino Playas Content Creators on Blockchain">
-	<!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://genz.casino">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GENZ.CASINO">
-<meta property="og:description" content="The Casino Playas
-Content Creator Game on Blockchain">
-<meta property="og:image" content="https://lh3.googleusercontent.com/Z-_LaBX5xR73J89pGY0_njc-vlvnzV9gkGclRdiPZFM6iQu00Oie3NJk8gxLgDgyjPaSTUPOokr23rldbnABT2xE3sM3rn3TfaYLOJQ=s768-v1">
+  <meta name="description" content="The New Social Media for Casino Playas Content Creators on Blockchain">
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://genz.casino">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GENZ.CASINO">
+  <meta property="og:description" content="The Casino Playas Content Creator Game on Blockchain">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/Z-_LaBX5xR73J89pGY0_njc-vlvnzV9gkGclRdiPZFM6iQu00Oie3NJk8gxLgDgyjPaSTUPOokr23rldbnABT2xE3sM3rn3TfaYLOJQ=s768-v1">
 
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta property="twitter:domain" content="genz.casino">
-<meta property="twitter:url" content="https://genz.casino">
-<meta name="twitter:title" content="GENZ.CASINO">
-<meta name="twitter:description" content="The New Social Media for Casino Playas Content Creators on Blockchain">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/Z-_LaBX5xR73J89pGY0_njc-vlvnzV9gkGclRdiPZFM6iQu00Oie3NJk8gxLgDgyjPaSTUPOokr23rldbnABT2xE3sM3rn3TfaYLOJQ=s768-v1">
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="genz.casino">
+  <meta property="twitter:url" content="https://genz.casino">
+  <meta name="twitter:title" content="GENZ.CASINO">
+  <meta name="twitter:description" content="The New Social Media for Casino Playas Content Creators on Blockchain">
+  <meta name="twitter:image" content="https://lh3.googleusercontent.com/Z-_LaBX5xR73J89pGY0_njc-vlvnzV9gkGclRdiPZFM6iQu00Oie3NJk8gxLgyjPaSTUPOokr23rldbnABT2xE3sM3rn3TfaYLOJQ=s768-v1">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
@@ -32,229 +31,368 @@ Content Creator Game on Blockchain">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
   <style type="text/css">
-	html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-	}
-  path {
-    stroke: whitesmoke;
-    stroke-width: 2px;
-    cursor: pointer;     
-    transition: fill 250ms;
-  }
-  path:hover {
-    fill: #1E1835;
-  }
-  text {
-    font-size: .99em;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    font-family: "Gilroy";
-  }
-  polyline {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1px;
-    stroke-dasharray : 5px;
-  }
-  	.chart-wrapper {
-  	max-width: 1140px;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-	.chart-graph {
-  	transform: translate(50%, 30%);
-  }
-  @media screen and (max-width: 767px) {
-  	.chart-graph {
-      transform: translate(52%, 30%) scale(0.8, 0.8);
-    }
-  }
-  @media screen and (max-width: 650px) {
-  	.chart-graph {
-    	transform: translate(53%, 25%) scale(0.7, 0.7);
-    }
-  }
-  @media screen and (max-width: 520px) {
-  	.chart-graph {
-    	transform: translate(54%, 20%) scale(0.6, 0.6);
-    }
-  }
-  @media screen and (max-width: 479px) {
-  	.chart-graph {
-    	transform: translate(53%, 20%) scale(0.55, 0.55);
-    }
-  }
-  
-  /* ===== GAME CARD CENTERING & BUTTONS ===== */
-  /* Center all content in game cards */
-  .features-card-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    padding: 30px 20px 40px !important;
-    position: relative;
-  }
-
-  /* Center game icons */
-  .features-image {
-    margin: 0 auto 20px !important;
-    display: block;
-    max-width: 80px;
-    height: auto;
-  }
-
-  /* Center game titles */
-  .feature-title {
-    text-align: center !important;
-    width: 100%;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  /* Game card text */
-  .features-card-list {
-    text-align: center !important;
-    padding-left: 0;
-    list-style-type: none;
-  }
-
-  .features-card-list li {
-    text-align: center;
-    margin-bottom: 12px;
-    line-height: 1.4;
-  }
-
-  /* Dual button container */
-  .game-buttons-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 320px;
-    margin-top: 25px;
-    gap: 15px;
-  }
-
-  /* Individual game buttons */
-  .game-button {
-    flex: 1;
-    min-width: 0;
-    padding: 12px 15px !important;
-    background: white !important;
-    color: black !important;
-    border: 2px solid #ddd !important;
-    border-radius: 12px !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* Discord button specific styling */
-  .game-button.discord-button {
-    background: #5865F2 !important;
-    color: white !important;
-    border-color: #5865F2 !important;
-  }
-
-  /* Hover effects */
-  .game-button:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
-  }
-
-  .game-button:not(.discord-button):hover {
-    background: #f8f8f8 !important;
-    border-color: #ccc !important;
-  }
-
-  .game-button.discord-button:hover {
-    background: #4752C4 !important;
-    border-color: #4752C4 !important;
-  }
-
-  /* Discord embed styling */
-  .discord-embed-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-  }
-
-  .discord-embed {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 991px) {
-    .game-buttons-container {
-      max-width: 280px;
-      gap: 12px;
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
     }
     
-    .game-button {
-      padding: 10px 12px !important;
-      font-size: 13px !important;
+    /* ===== PIE CHART FIXES - DESKTOP SPECIFIC ===== */
+    .chart-wrapper text {
+      font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-weight: 600 !important;
+      fill: white !important;
+      pointer-events: none !important;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     }
-  }
-
-  @media (max-width: 767px) {
+    
+    /* MOBILE (default) - smaller text, works well */
+    .chart-wrapper text {
+      font-size: 10px !important;
+      text-transform: uppercase !important;
+      letter-spacing: .5px !important;
+    }
+    
+    /* TABLET - medium text */
+    @media screen and (min-width: 480px) and (max-width: 1023px) {
+      .chart-wrapper text {
+        font-size: 11px !important;
+        letter-spacing: .6px !important;
+      }
+    }
+    
+    /* DESKTOP - adjust positions to prevent overlap */
+    @media screen and (min-width: 1024px) {
+      .chart-wrapper text {
+        font-size: 12px !important;
+        letter-spacing: .7px !important;
+      }
+      
+      /* Adjust specific label positions if they overlap */
+      /* These selectors target the percentage labels */
+      text[label-pos="outside"] {
+        transform: translate(10px, 0) !important;
+      }
+      
+      /* For labels that are too close to center, push them out */
+      text[dy="0.35em"][x="0"] {
+        transform: translate(15px, 0) !important;
+      }
+    }
+    
+    /* LARGE DESKTOP - more adjustments */
+    @media screen and (min-width: 1400px) {
+      .chart-wrapper text {
+        font-size: 13px !important;
+      }
+      
+      /* Move labels further out on large screens */
+      text[dy="0.35em"] {
+        transform: translate(20px, 0) !important;
+      }
+    }
+    
+    .chart-wrapper .label {
+      font-size: 12px !important;
+      font-weight: bold !important;
+      fill: white !important;
+    }
+    
+    path {
+      stroke: whitesmoke;
+      stroke-width: 2px;
+      cursor: pointer;     
+      transition: fill 250ms;
+    }
+    
+    path:hover {
+      fill: #1E1835;
+    }
+    
+    polyline {
+      fill: none;
+      stroke: grey;
+      stroke-width: 1px;
+      stroke-dasharray : 5px;
+    }
+    
+    .chart-wrapper {
+      max-width: 1140px;
+      width: 100%;
+      height: 400px; /* Fixed height for chart */
+      position: relative;
+      margin: 0 auto;
+    }
+    
+    .chart-graph {
+      transform: translate(50%, 50%);
+    }
+    
+    /* Alternative: Use legend instead of labels on desktop if overlap persists */
+    @media screen and (min-width: 1024px) {
+      .chart-legend {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+      
+      .legend-item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: white;
+      }
+      
+      .legend-color {
+        width: 15px;
+        height: 15px;
+        margin-right: 8px;
+        border-radius: 3px;
+      }
+    }
+    
+    @media screen and (max-width: 767px) {
+      .chart-wrapper {
+        height: 300px;
+      }
+      .chart-graph {
+        transform: translate(50%, 50%) scale(0.8, 0.8);
+      }
+    }
+    
+    @media screen and (max-width: 650px) {
+      .chart-wrapper {
+        height: 250px;
+      }
+      .chart-graph {
+        transform: translate(50%, 50%) scale(0.7, 0.7);
+      }
+    }
+    
+    @media screen and (max-width: 520px) {
+      .chart-wrapper {
+        height: 200px;
+      }
+      .chart-graph {
+        transform: translate(50%, 50%) scale(0.6, 0.6);
+      }
+    }
+    
+    @media screen and (max-width: 479px) {
+      .chart-wrapper {
+        height: 180px;
+      }
+      .chart-graph {
+        transform: translate(50%, 50%) scale(0.55, 0.55);
+      }
+    }
+    
+    /* ===== GAME CARD CENTERING & BUTTONS ===== */
     .features-card-content-wrapper {
-      padding: 20px 15px 35px !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 30px 20px 40px !important;
+      position: relative;
     }
     
     .features-image {
-      max-width: 60px !important;
-      margin-bottom: 15px !important;
+      margin: 0 auto 20px !important;
+      display: block;
+      max-width: 80px;
+      height: auto;
     }
     
     .feature-title {
-      font-size: 20px !important;
-      margin-bottom: 15px !important;
+      text-align: center !important;
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .features-card-list {
+      text-align: center !important;
+      padding-left: 0;
+      list-style-type: none;
+    }
+    
+    .features-card-list li {
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
     
     .game-buttons-container {
-      max-width: 260px;
-      margin-top: 20px;
-      gap: 10px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 320px;
+      margin-top: 25px;
+      gap: 15px;
     }
     
     .game-button {
-      padding: 8px 10px !important;
-      font-size: 12px !important;
-    }
-  }
-
-  @media (max-width: 479px) {
-    .features-card-content-wrapper {
-      padding: 15px 10px 30px !important;
+      flex: 1;
+      min-width: 0;
+      padding: 12px 15px !important;
+      background: white !important;
+      color: black !important;
+      border: 2px solid #ddd !important;
+      border-radius: 12px !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      text-decoration: none !important;
+      text-align: center !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
-    .game-buttons-container {
-      max-width: 240px;
-      flex-direction: column;
-      gap: 8px;
+    .game-button.discord-button {
+      background: #5865F2 !important;
+      color: white !important;
+      border-color: #5865F2 !important;
     }
     
-    .game-button {
-      width: 100% !important;
-      padding: 10px 15px !important;
-      font-size: 13px !important;
+    .game-button:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
     }
-  }
-</style>
+    
+    .game-button:not(.discord-button):hover {
+      background: #f8f8f8 !important;
+      border-color: #ccc !important;
+    }
+    
+    .game-button.discord-button:hover {
+      background: #4752C4 !important;
+      border-color: #4752C4 !important;
+    }
+    
+    .discord-embed-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    
+    .discord-embed {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Fix for SLOT section spacing */
+    .hackathon-header {
+      padding: 20px 0;
+    }
+    
+    .devnet-note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+      font-style: italic;
+    }
+    
+    .hackathon-winner-link {
+      color: #ff862d;
+      text-decoration: none;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+      .game-buttons-container {
+        max-width: 280px;
+        gap: 12px;
+      }
+      
+      .game-button {
+        padding: 10px 12px !important;
+        font-size: 13px !important;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .features-card-content-wrapper {
+        padding: 20px 15px 35px !important;
+      }
+      
+      .features-image {
+        max-width: 60px !important;
+        margin-bottom: 15px !important;
+      }
+      
+      .feature-title {
+        font-size: 20px !important;
+        margin-bottom: 15px !important;
+      }
+      
+      .game-buttons-container {
+        max-width: 260px;
+        margin-top: 20px;
+        gap: 10px;
+      }
+      
+      .game-button {
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+      }
+    }
+    
+    @media (max-width: 479px) {
+      .features-card-content-wrapper {
+        padding: 15px 10px 30px !important;
+      }
+      
+      .game-buttons-container {
+        max-width: 240px;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .game-button {
+        width: 100% !important;
+        padding: 10px 15px !important;
+        font-size: 13px !important;
+      }
+    }
+    
+    /* Fix for broken anchor tag */
+    a {
+      text-decoration: none;
+    }
+    
+    .hackathon-winner-link b {
+      color: inherit;
+    }
+    
+    /* Ensure text is visible on dark background */
+    .tokenomics {
+      background-color: #0a0a0a;
+      padding: 60px 0;
+    }
+    
+    .total-supply {
+      color: white;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 24px;
+    }
+    
+    /* Additional fix: If text still overlaps on desktop, enable legend fallback */
+    @media screen and (min-width: 1024px) {
+      .chart-labels-fallback {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body class="body">
   <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navbar w-nav">
