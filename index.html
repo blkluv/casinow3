@@ -680,71 +680,52 @@
     let colors = ['#25BDA2', '#ff862d', '#6babff', '#E0B5E4', '#fdff86'];
     
     let draw = function() {
-      let width = document.querySelector('.chart-wrapper').offsetWidth;
-      let height = document.querySelector('.chart-wrapper').offsetHeight;
-      let minOfWH = Math.min(width, height) / 2;
-      let radius = minOfWH > 200 ? 200 : minOfWH;
+      // Get the container dimensions
+      let container = document.querySelector('.chart-wrapper');
+      let width = container.offsetWidth;
+      let height = container.offsetHeight;
+      let radius = Math.min(width, height) / 2.5; // Reduced for better spacing
       
       // Clear any existing chart
       d3.select('.chart-wrapper').select('svg').remove();
       
-      // Append svg
+      // Create SVG with proper viewport
       let svg = d3.select('.chart-wrapper')
         .append('svg')
-        .attr('width', '100%')
-        .attr('height', '100%')
-        .attr('class', 'pieChart')
+        .attr('width', width)
+        .attr('height', height)
         .append('g')
-        .attr('class', 'chart-graph');
+        .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
       
-      // For drawing slices
+      // Create pie layout
+      let pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d; });
+      
+      // Create arc for slices
       let arc = d3.svg.arc()
-        .outerRadius(radius * 0.65)
-        .innerRadius(radius * 0.45);
+        .outerRadius(radius * 0.7)
+        .innerRadius(radius * 0.5);
       
-      // For labels and polylines - INCREASED FOR BETTER SPACING
+      // Create outer arc for labels - INCREASED RADIUS
       let outerArc = d3.svg.arc()
-        .innerRadius(radius * 1.0)  // Increased from 0.85
-        .outerRadius(radius * 1.0); // Increased from 0.85
-      
-      let pie = d3.layout.pie().value(function(d) { return d; });
-      
-      // Add gradient definitions
-      let defs = svg.append('defs');
-      
-      // Add drop shadow filter
-      let filter = defs.append('filter')
-        .attr('id', 'dropshadow');
-      
-      filter.append('feGaussianBlur')
-        .attr('in', 'SourceAlpha')
-        .attr('stdDeviation', 7)
-        .attr('result', 'blur');
-      
-      filter.append('feOffset')
-        .attr('in', 'blur')
-        .attr('dx', 0)
-        .attr('dy', 0)
-        .attr('result', 'offsetBlur');
-      
-      let feMerge = filter.append('feMerge');
-      feMerge.append('feMergeNode').attr('in', 'offsetBlur');
-      feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+        .innerRadius(radius * 1.1)  // Increased for spacing
+        .outerRadius(radius * 1.1); // Increased for spacing
       
       // Draw slices
-      let slice = svg.selectAll('.slice')
+      let slices = svg.selectAll('.slice')
         .data(pie(dataset))
-        .enter().append('g')
+        .enter()
+        .append('g')
         .attr('class', 'slice');
       
-      slice.append('path')
+      slices.append('path')
         .attr('d', arc)
         .attr('fill', function(d, i) { return colors[i]; })
-        .attr('filter', 'url(#dropshadow)')
         .style('opacity', 0)
         .transition()
-        .delay(function(d, i) { return i * 150 + 200; })
-        .duration(2000)
+        .delay(function(d, i) { return i * 150; })
+        .duration(1000)
         .style('opacity', 1);
       
       // Function to calculate mid-angle
@@ -752,71 +733,68 @@
         return d.startAngle + (d.endAngle - d.startAngle) / 2;
       };
       
-      // Add labels with dynamic positioning
-      slice.append('text')
+      // Add labels with smart positioning
+      let labels = slices.append('text')
         .attr('transform', function(d) {
           let pos = outerArc.centroid(d);
+          let angle = midAngle(d);
           
-          // DYNAMIC POSITIONING BASED ON SLICE SIZE
-          const sliceSize = d.data;
-          let labelRadius = radius * 1.1; // Base radius
+          // Dynamic positioning based on slice size
+          let sliceSize = d.data;
+          let labelRadius = radius * 1.15;
           
-          // Adjust for different slice sizes
-          if (sliceSize <= 5) { // Small slices (1%, 5%)
+          // Adjust for small slices
+          if (sliceSize < 10) {
+            labelRadius = radius * 1.25;
+          } else if (sliceSize < 20) {
             labelRadius = radius * 1.2;
-          } else if (sliceSize <= 19) { // Medium slices (15%, 19%)
-            labelRadius = radius * 1.05;
           }
-          // Large slice (60%) keeps base radius
           
-          pos[0] = labelRadius * (midAngle(d) < Math.PI ? 1 : -1);
-          
-          // Additional adjustments for tiny slices
-          if (sliceSize === 1) {
-            pos[1] += 8; // Move Charity 1% down a bit
-          }
+          pos[0] = labelRadius * (Math.cos(angle));
+          pos[1] = labelRadius * (Math.sin(angle));
           
           return 'translate(' + pos + ')';
         })
+        .attr('dy', '0.35em')
         .style('text-anchor', function(d) {
           return midAngle(d) < Math.PI ? 'start' : 'end';
         })
         .text(function(d, i) { return tokenomicsLabels[i]; })
-        .style('fill', 'white') // Changed from colors[i] for better visibility
+        .style('fill', 'white')
         .style('font-size', function() {
-          // Dynamic font size
-          const screenWidth = window.innerWidth;
+          // Responsive font sizing
+          let screenWidth = window.innerWidth;
           if (screenWidth < 480) return '10px';
           if (screenWidth < 768) return '11px';
           if (screenWidth < 1024) return '12px';
           return '13px';
         })
-        .style('font-weight', 'bold')
+        .style('font-weight', '600')
         .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)')
         .style('opacity', 0)
         .transition()
-        .delay(2000)
-        .duration(1000)
+        .delay(1000)
+        .duration(500)
         .style('opacity', 1);
     };
     
+    // Initialize chart
     $(document).ready(function() {
-      // Draw chart when it comes into view
+      // Draw chart when in viewport
       $(window).scroll(function() {
         let chartWrapper = $('.chart-wrapper');
         if (chartWrapper.length && $(window).scrollTop() >= chartWrapper.offset().top - ($(window).height() / 2)) {
-          // Only draw once
           $(window).off('scroll');
           draw();
         }
       });
       
-      // Also try to draw on page load if already in view
+      // Draw immediately if already in view
       if ($('.chart-wrapper').length && $('.chart-wrapper').offset().top < $(window).height()) {
         draw();
       }
       
-      // Redraw on resize with debounce
+      // Redraw on resize
       let resizeTimer;
       $(window).resize(function() {
         clearTimeout(resizeTimer);
