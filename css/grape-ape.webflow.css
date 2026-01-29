@@ -1855,3 +1855,12 @@ li {
   margin-bottom: 35px !important;
   padding: 0 10px !important;
   text-align
+  .chart-wrapper text {
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .5px !important;
+  font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: 600 !important;
+  fill: white !important;  /* Critical: Sets text color */
+  pointer-events: none !important;
+}
