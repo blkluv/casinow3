@@ -667,7 +667,7 @@
   <script src="js/webflow.js" type="text/javascript"></script>
   
 <script>
-    // Fixed pie chart data
+    // Fixed pie chart data for GENZ.CASINO
     let dataset = [1, 5, 19, 15, 60];
     let tokenomicsLabels = [
       'Charity 1%',
@@ -678,134 +678,102 @@
     ];
     
     let colors = ['#25BDA2', '#ff862d', '#6babff', '#E0B5E4', '#fdff86'];
-    let chartDrawn = false;
     
-    function drawPieChart() {
-      if (chartDrawn) return;
-      chartDrawn = true;
-      
+    let draw = function() {
       let width = document.querySelector('.chart-wrapper').offsetWidth;
       let height = document.querySelector('.chart-wrapper').offsetHeight;
       let minOfWH = Math.min(width, height) / 2;
-      let radius = minOfWH > 150 ? 150 : minOfWH;
+      let radius = minOfWH > 200 ? 200 : minOfWH;
       
       // Clear any existing chart
-      d3.select('.chart-wrapper').selectAll('svg').remove();
+      d3.select('.chart-wrapper').select('svg').remove();
       
-      // Create SVG container with proper viewBox
+      // Append svg
       let svg = d3.select('.chart-wrapper')
         .append('svg')
         .attr('width', '100%')
         .attr('height', '100%')
-        .attr('viewBox', `0 0 ${width} ${height}`)
-        .attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('class', 'pieChart')
         .append('g')
-        .attr('class', 'chart-graph')
-        .attr('transform', `translate(${width/2}, ${height/2})`);
+        .attr('class', 'chart-graph');
       
-      // Create arc generators
+      // For drawing slices
       let arc = d3.svg.arc()
         .outerRadius(radius * 0.65)
         .innerRadius(radius * 0.45);
       
+      // For labels and polylines - INCREASED FOR BETTER SPACING
       let outerArc = d3.svg.arc()
-        .innerRadius(radius * 0.85)
-        .outerRadius(radius * 0.85);
+        .innerRadius(radius * 1.0)  // Increased from 0.85
+        .outerRadius(radius * 1.0); // Increased from 0.85
       
-      let pie = d3.layout.pie()
-        .sort(null)
-        .value(function(d) { return d; });
+      let pie = d3.layout.pie().value(function(d) { return d; });
+      
+      // Add gradient definitions
+      let defs = svg.append('defs');
       
       // Add drop shadow filter
-      let defs = svg.append('defs');
       let filter = defs.append('filter')
         .attr('id', 'dropshadow');
       
       filter.append('feGaussianBlur')
         .attr('in', 'SourceAlpha')
-        .attr('stdDeviation', 3)
+        .attr('stdDeviation', 7)
         .attr('result', 'blur');
       
       filter.append('feOffset')
         .attr('in', 'blur')
-        .attr('dx', 2)
-        .attr('dy', 2)
+        .attr('dx', 0)
+        .attr('dy', 0)
         .attr('result', 'offsetBlur');
       
       let feMerge = filter.append('feMerge');
       feMerge.append('feMergeNode').attr('in', 'offsetBlur');
       feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
       
-      // Create pie slices data
-      let arcs = pie(dataset);
+      // Draw slices
+      let slice = svg.selectAll('.slice')
+        .data(pie(dataset))
+        .enter().append('g')
+        .attr('class', 'slice');
       
-      // Function to calculate mid-angle
-      function midAngle(d) {
-        return d.startAngle + (d.endAngle - d.startAngle) / 2;
-      }
-      
-      // Draw slices with animation
-      svg.selectAll('.slice')
-        .data(arcs)
-        .enter().append('path')
-        .attr('class', 'slice')
+      slice.append('path')
         .attr('d', arc)
         .attr('fill', function(d, i) { return colors[i]; })
-        .attr('stroke', 'white')
-        .attr('stroke-width', 2)
         .attr('filter', 'url(#dropshadow)')
         .style('opacity', 0)
         .transition()
-        .delay(function(d, i) { return i * 200; })
-        .duration(1000)
+        .delay(function(d, i) { return i * 150 + 200; })
+        .duration(2000)
         .style('opacity', 1);
       
-      // Draw labels with dynamic positioning
-      svg.selectAll('.label')
-        .data(arcs)
-        .enter().append('text')
-        .attr('class', 'label')
-        .attr('dy', '0.35em')
-        .style('font-size', function() {
-          // Dynamic font size based on screen width
-          const screenWidth = window.innerWidth;
-          if (screenWidth < 480) return '9px';
-          if (screenWidth < 768) return '10px';
-          if (screenWidth < 1024) return '11px';
-          return '12px';
-        })
-        .style('font-weight', 'bold')
-        .style('fill', 'white')
-        .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.8)')
-        .style('text-transform', 'uppercase')
-        .style('letter-spacing', '0.5px')
-        .style('opacity', 0)
-        .text(function(d, i) { return tokenomicsLabels[i]; })
+      // Function to calculate mid-angle
+      let midAngle = function(d) {
+        return d.startAngle + (d.endAngle - d.startAngle) / 2;
+      };
+      
+      // Add labels with dynamic positioning
+      slice.append('text')
         .attr('transform', function(d) {
           let pos = outerArc.centroid(d);
-          const angle = midAngle(d);
-          const isLeftSide = angle > Math.PI;
           
-          // Adjust position based on slice size to prevent overlap
+          // DYNAMIC POSITIONING BASED ON SLICE SIZE
           const sliceSize = d.data;
-          let labelRadius = radius * 0.95;
+          let labelRadius = radius * 1.1; // Base radius
           
           // Adjust for different slice sizes
-          if (sliceSize < 10) { // Small slices (1%, 5%)
+          if (sliceSize <= 5) { // Small slices (1%, 5%)
+            labelRadius = radius * 1.2;
+          } else if (sliceSize <= 19) { // Medium slices (15%, 19%)
             labelRadius = radius * 1.05;
-          } else if (sliceSize < 20) { // Medium slices (15%, 19%)
-            labelRadius = radius * 0.98;
-          } else if (sliceSize >= 60) { // Large slice (60%)
-            labelRadius = radius * 0.9;
           }
+          // Large slice (60%) keeps base radius
           
-          pos[0] = labelRadius * (isLeftSide ? -1 : 1);
+          pos[0] = labelRadius * (midAngle(d) < Math.PI ? 1 : -1);
           
-          // Additional vertical adjustment for specific slices
-          if (sliceSize === 1) { // Charity 1% - very small slice
-            pos[1] += 5;
-          } else if (sliceSize === 5) { // Liquidity 5%
-            pos[1] += 3;
+          // Additional adjustments for tiny slices
+          if (sliceSize === 1) {
+            pos[1] += 8; // Move Charity 1% down a bit
           }
           
           return 'translate(' + pos + ')';
@@ -813,161 +781,50 @@
         .style('text-anchor', function(d) {
           return midAngle(d) < Math.PI ? 'start' : 'end';
         })
-        .each(function(d) {
-          // Store data attributes for CSS targeting
-          const textElement = d3.select(this);
-          textElement.attr('data-percentage', d.data);
-          textElement.attr('data-label', tokenomicsLabels[arcs.indexOf(d)]);
-          if (d.data < 10) {
-            textElement.classed('tiny-slice', true);
-          }
+        .text(function(d, i) { return tokenomicsLabels[i]; })
+        .style('fill', 'white') // Changed from colors[i] for better visibility
+        .style('font-size', function() {
+          // Dynamic font size
+          const screenWidth = window.innerWidth;
+          if (screenWidth < 480) return '10px';
+          if (screenWidth < 768) return '11px';
+          if (screenWidth < 1024) return '12px';
+          return '13px';
         })
-        .transition()
-        .delay(1200)
-        .duration(500)
-        .style('opacity', 1);
-      
-      // Draw connecting lines with adjusted positions
-      svg.selectAll('.polyline')
-        .data(arcs)
-        .enter().append('polyline')
-        .attr('class', 'polyline')
-        .attr('points', function(d) {
-          const angle = midAngle(d);
-          const isLeftSide = angle > Math.PI;
-          const sliceSize = d.data;
-          let labelRadius = radius * 0.95;
-          
-          // Match label positioning
-          if (sliceSize < 10) {
-            labelRadius = radius * 1.05;
-          } else if (sliceSize < 20) {
-            labelRadius = radius * 0.98;
-          } else if (sliceSize >= 60) {
-            labelRadius = radius * 0.9;
-          }
-          
-          const outerPos = outerArc.centroid(d);
-          outerPos[0] = labelRadius * (isLeftSide ? -1 : 1);
-          
-          if (sliceSize === 1) {
-            outerPos[1] += 5;
-          } else if (sliceSize === 5) {
-            outerPos[1] += 3;
-          }
-          
-          return [arc.centroid(d), outerArc.centroid(d), outerPos];
-        })
-        .style('fill', 'none')
-        .style('stroke', 'rgba(255, 255, 255, 0.6)')
-        .style('stroke-width', '1px')
-        .style('stroke-dasharray', '5,5')
+        .style('font-weight', 'bold')
+        .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.9)')
         .style('opacity', 0)
         .transition()
-        .delay(1200)
-        .duration(500)
-        .style('opacity', 0.7);
-    }
+        .delay(2000)
+        .duration(1000)
+        .style('opacity', 1);
+    };
     
-    // Check if chart should be drawn
-    function initChart() {
-      if (chartDrawn) return;
-      
-      const chartWrapper = document.querySelector('.chart-wrapper');
-      if (!chartWrapper) return;
-      
-      const rect = chartWrapper.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      
-      // Check if chart is in viewport
-      if (rect.top <= windowHeight * 0.85 && rect.bottom >= 0) {
-        drawPieChart();
-      }
-    }
-    
-    // Function to handle responsive label adjustments
-    function adjustLabelsForScreenSize() {
-      if (!chartDrawn) return;
-      
-      const screenWidth = window.innerWidth;
-      const labels = document.querySelectorAll('.chart-wrapper .label');
-      
-      labels.forEach(label => {
-        const percentage = label.getAttribute('data-percentage');
-        if (!percentage) return;
-        
-        const perc = parseInt(percentage);
-        const fontSize = parseInt(getComputedStyle(label).fontSize);
-        
-        // Adjust font size based on screen width
-        if (screenWidth < 480) {
-          label.style.fontSize = '9px';
-        } else if (screenWidth < 768) {
-          label.style.fontSize = '10px';
-        } else if (screenWidth < 1024) {
-          label.style.fontSize = '11px';
-        } else {
-          label.style.fontSize = '12px';
-        }
-        
-        // Extra adjustments for mobile
-        if (screenWidth < 768) {
-          // On mobile, reduce text for small slices
-          if (perc < 10) {
-            label.style.fontSize = '8px';
-            label.style.textShadow = '1px 1px 3px rgba(0,0,0,0.9)';
-          }
-        }
-      });
-    }
-    
-    // Initialize when DOM is ready
     $(document).ready(function() {
-      // Set up scroll listener
-      $(window).on('scroll', initChart);
-      
-      // Set up resize listener
-      $(window).on('resize', function() {
-        if (chartDrawn) {
-          // Instead of redrawing completely, adjust existing labels
-          adjustLabelsForScreenSize();
-        } else {
-          chartDrawn = false;
-          initChart();
+      // Draw chart when it comes into view
+      $(window).scroll(function() {
+        let chartWrapper = $('.chart-wrapper');
+        if (chartWrapper.length && $(window).scrollTop() >= chartWrapper.offset().top - ($(window).height() / 2)) {
+          // Only draw once
+          $(window).off('scroll');
+          draw();
         }
       });
       
-      // Initial check
-      setTimeout(initChart, 500);
+      // Also try to draw on page load if already in view
+      if ($('.chart-wrapper').length && $('.chart-wrapper').offset().top < $(window).height()) {
+        draw();
+      }
       
-      // Check on load
-      $(window).on('load', initChart);
-      
-      // Also adjust on orientation change
-      window.addEventListener('orientationchange', function() {
-        setTimeout(adjustLabelsForScreenSize, 300);
-      });
-    });
-  </script>
-  
-  <script>
-    // Fix video autoplay
-    document.addEventListener('DOMContentLoaded', function() {
-      const videos = document.querySelectorAll('video');
-      videos.forEach(function(video) {
-        if (video) {
-          video.setAttribute('playsinline', '');
-          video.setAttribute('muted', '');
-          video.setAttribute('preload', 'metadata');
-          
-          // Try to play video
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(function(error) {
-              console.log('Video autoplay prevented:', error);
-            });
+      // Redraw on resize with debounce
+      let resizeTimer;
+      $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          if ($('.chart-wrapper svg').length) {
+            draw();
           }
-        }
+        }, 250);
       });
     });
   </script>
