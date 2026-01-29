@@ -35,7 +35,6 @@
     html, body {
       max-width: 100%;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
     
     path {
@@ -67,39 +66,34 @@
       max-width: 1140px;
       width: 100%;
       height: 100%;
-      position: relative;
-      margin: 0 auto;
-      min-height: 400px;
+      position: absolute;
     }
     
     .chart-graph {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(50%, 30%);
     }
     
     @media screen and (max-width: 767px) {
       .chart-graph {
-        transform: translate(-50%, -50%) scale(0.8, 0.8);
+        transform: translate(52%, 30%) scale(0.8, 0.8);
       }
     }
     
     @media screen and (max-width: 650px) {
       .chart-graph {
-        transform: translate(-50%, -50%) scale(0.7, 0.7);
+        transform: translate(53%, 25%) scale(0.7, 0.7);
       }
     }
     
     @media screen and (max-width: 520px) {
       .chart-graph {
-        transform: translate(-50%, -50%) scale(0.6, 0.6);
+        transform: translate(54%, 20%) scale(0.6, 0.6);
       }
     }
     
     @media screen and (max-width: 479px) {
       .chart-graph {
-        transform: translate(-50%, -50%) scale(0.55, 0.55);
+        transform: translate(53%, 20%) scale(0.55, 0.55);
       }
     }
     
@@ -133,7 +127,6 @@
       text-align: center !important;
       padding-left: 0;
       list-style-type: none;
-      margin-bottom: 20px;
     }
     
     .features-card-list li {
@@ -147,7 +140,7 @@
       justify-content: space-between;
       width: 100%;
       max-width: 320px;
-      margin-top: auto;
+      margin-top: 25px;
       gap: 15px;
     }
     
@@ -169,7 +162,6 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      display: block;
     }
     
     .game-button.discord-button {
@@ -206,23 +198,9 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     }
     
-    /* FIX: Remove duplicate section styling */
-    .grape-access {
-      padding: 80px 0;
-    }
-    
-    /* FIX: Make SLOT section visible */
-    .hackathon-box {
-      margin-bottom: 40px;
-    }
-    
+    /* Fix for SLOT section spacing */
     .hackathon-header {
-      text-align: center;
-    }
-    
-    .hackathon-winner-link {
-      color: #ff862d;
-      text-decoration: none;
+      padding: 20px 0;
     }
     
     .devnet-note {
@@ -230,6 +208,11 @@
       color: #666;
       margin-top: 10px;
       font-style: italic;
+    }
+    
+    .hackathon-winner-link {
+      color: #ff862d;
+      text-decoration: none;
     }
     
     /* Responsive adjustments */
@@ -270,11 +253,6 @@
         padding: 8px 10px !important;
         font-size: 12px !important;
       }
-      
-      .discord-embed iframe {
-        width: 300px;
-        height: 400px;
-      }
     }
     
     @media (max-width: 479px) {
@@ -293,22 +271,6 @@
         padding: 10px 15px !important;
         font-size: 13px !important;
       }
-      
-      .discord-embed iframe {
-        width: 280px;
-        height: 380px;
-      }
-    }
-    
-    /* Fix for overflowing content */
-    .container {
-      max-width: 100%;
-      overflow: hidden;
-    }
-    
-    /* Smooth scrolling for anchor links */
-    html {
-      scroll-padding-top: 80px;
     }
     
     /* Fix for broken anchor tag */
@@ -397,7 +359,7 @@
     </div>
   </div>
   
-  <!-- FIXED SECTION: Correctly structured SLOT section -->
+  <!-- SLOT Section - Fixed -->
   <div class="section">
     <div class="container center">
       <div data-w-id="6887018f-625b-8d44-01b5-51c838eeb12f" style="opacity:0" class="hackathon-box">
@@ -418,18 +380,18 @@
     <h2 data-w-id="d8074669-33a1-aa9d-5c38-4c53efdbf36c" style="opacity:0" class="mb-220 text-center">GAME ROOM</h2>
     <div class="container">
       <div class="w-layout-grid features-grid">
-        <!-- SNAKE Game Card -->
+        <!-- SNAKE Game Card - Icon Restored -->
         <div id="w-node-a6af4ef7-3ac0-1a54-7bf1-9b820b147d04-d9f06085" data-w-id="a6af4ef7-3ac0-1a54-7bf1-9b820b147d04" style="opacity:0" class="features-card">
           <div class="features-card-content-wrapper">
-            <img src="images/Element_1.svg" loading="lazy" alt="Snake game icon" class="features-image">
+            <img src="images/Element_1.svg" loading="lazy" alt="Link social accounts image" class="features-image">
             <h3 class="feature-title">SNAKE</h3>
             <ul role="list" class="features-card-list w-list-unstyled">
-              <li>🐍⚡ Classic Snake game goes CRAZY on Farcaster Frames 🎮✨</li>
-              <li>🔥 Modes: Classic 🟢 | Time Blitz ⏱️ (60s sweat) | Zen Flow 🧘‍♂️</li>
-              <li>💥 Power-Ups: Speed ⚡ x2 Score 💰 Magnet 🧲 Shield 🛡️ Time Freeze ❄️</li>
-              <li>🎨 Skins + Missions: Grind challenges → unlock drip 🐍</li>
-              <li>🎁 Daily Rewards: Log in = free apples 🍎 (up to 1K on day 7 👀)</li>
-              <li>🏆 Global Leaderboard: Flex worldwide 🌍</li>
+              <li class="mb-20">🐍⚡ Classic Snake game goes CRAZY on Farcaster Frames 🎮✨</li>
+              <li class="mb-20">🔥 Modes: Classic 🟢 | Time Blitz ⏱️ (60s sweat) | Zen Flow 🧘‍♂️</li>
+              <li class="mb-20">💥 Power-Ups: Speed ⚡ x2 Score 💰 Magnet 🧲 Shield 🛡️ Time Freeze ❄️</li>
+              <li class="mb-20">🎨 Skins + Missions: Grind challenges → unlock drip 🐍</li>
+              <li class="mb-20">🎁 Daily Rewards: Log in = free apples 🍎 (up to 1K on day 7 👀)</li>
+              <li class="mb-20">🏆 Global Leaderboard: Flex worldwide 🌍</li>
             </ul>
             <div class="game-buttons-container">
               <a href="https://snake.genz.casino" class="game-button">Play Snake</a>
@@ -441,11 +403,11 @@
         <!-- GHOST Game Card -->
         <div id="w-node-_442d2486-df89-da3e-43eb-28167c807c66-d9f06085" data-w-id="442d2486-df89-da3e-43eb-28167c807c66" style="opacity:0" class="features-card">
           <div class="features-card-content-wrapper">
-            <img src="images/Element_2.svg" loading="lazy" alt="Ghost game icon" class="features-image">
+            <img src="images/Element_2.svg" loading="lazy" alt="Multi coin configurations image" class="features-image">
             <h3 class="feature-title">GHOST</h3>
             <ul role="list" class="features-card-list w-list-unstyled">
-              <li>👻 Mint ghosts that possess wallets and create blockchain chaos.</li>
-              <li>👻 Solve riddles to exorcise or befriend the spirits.</li>
+              <li class="mb-20">👻 Mint ghosts that possess wallets and create blockchain chaos.</li>
+              <li class="mb-20">👻 Solve riddles to exorcise or befriend the spirits.</li>
             </ul>
             <div class="game-buttons-container">
               <a href="https://ghost.genz.casino" class="game-button">Play Ghost</a>
@@ -457,13 +419,13 @@
         <!-- SOLSINO Game Card -->
         <div id="w-node-_621cd584-e952-8e81-1e12-f71993c45c0e-d9f06085" data-w-id="621cd584-e952-8e81-1e12-f71993c45c0e" style="opacity:0" class="features-card">
           <div class="features-card-content-wrapper">
-            <img src="images/Element_4.svg" loading="lazy" alt="Solsino game icon" class="features-image">
+            <img src="images/Element_4.svg" loading="lazy" alt="Community DAO image" class="features-image">
             <h3 class="feature-title">SOLSINO</h3>
             <ul role="list" class="features-card-list w-list-unstyled">
-              <li>🎲 Transform any Solana token into a fully-featured casino ecosystem with advanced gaming features, real-time analytics, and institutional-grade security.</li>
-              <li>🪙 Coin Flip: Classic heads or tails with 1.95x multiplier and animated coin flips.</li>
-              <li>🎲 Dice Roll: Customizable odds with roll under/over mechanics and dynamic multipliers.</li>
-              <li>🎰 Slots: Match symbols to win up to 25x your bet with immersive animations and sound effects.</li>
+              <li class="mb-20">🎲 Transform any Solana token into a fully-featured casino ecosystem with advanced gaming features, real-time analytics, and institutional-grade security.</li>
+              <li class="mb-20">🪙 Coin Flip: Classic heads or tails with 1.95x multiplier and animated coin flips.</li>
+              <li class="mb-20">🎲 Dice Roll: Customizable odds with roll under/over mechanics and dynamic multipliers.</li>
+              <li class="mb-20">🎰 Slots: Match symbols to win up to 25x your bet with immersive animations and sound effects.</li>
             </ul>
             <div class="game-buttons-container">
               <a href="https://solsino.genz.casino/dicesino" class="game-button">Play Dicesino</a>
@@ -475,13 +437,13 @@
         <!-- DRYSLAND Game Card -->
         <div id="w-node-a3304a0f-56e3-3666-95d7-302c55091b50-d9f06085" data-w-id="a3304a0f-56e3-3666-95d7-302c55091b50" style="opacity:0" class="features-card">
           <div class="features-card-content-wrapper">
-            <img src="images/Element_3.svg" loading="lazy" alt="Dryland game icon" class="features-image">
+            <img src="images/Element_3.svg" loading="lazy" alt="Restore community image" class="features-image">
             <h3 class="feature-title">DRYSLAND</h3>
             <ul role="list" class="features-card-list w-list-unstyled">
-              <li>🏝️ Drysland is a calming, minimalist puzzle game where your goal is to revitalize a dried-out island.</li>
-              <li>🏝️ Relaxing Gameplay: simply rotate and connect broken ground segments to fix the river's flow and bring water back to the soil.</li>
-              <li>🏝️ Endless Puzzles: Every level is generated automatically, meaning no two puzzles are alike.</li>
-              <li>🏝️ Balanced Challenge: The islands grow larger and harder as you play, but a smart system ensures every puzzle is always solvable.</li>
+              <li class="mb-20">🏝️ Drysland is a calming, minimalist puzzle game where your goal is to revitalize a dried-out island.</li>
+              <li class="mb-20">🏝️ Relaxing Gameplay: simply rotate and connect broken ground segments to fix the river's flow and bring water back to the soil.</li>
+              <li class="mb-20">🏝️ Endless Puzzles: Every level is generated automatically, meaning no two puzzles are alike.</li>
+              <li class="mb-20">🏝️ Balanced Challenge: The islands grow larger and harder as you play, but a smart system ensures every puzzle is always solvable.</li>
             </ul>
             <div class="game-buttons-container">
               <a href="https://drysland.genz.casino" class="game-button">Play Dryland</a>
@@ -493,15 +455,15 @@
         <!-- NEWARK Game Card -->
         <div id="w-node-fda3d574-5176-7f9c-bd6e-c437aab5d6f1-d9f06085" data-w-id="fda3d574-5176-7f9c-bd6e-c437aab5d6f1" style="opacity:0" class="features-card">
           <div class="features-card-content-wrapper">
-            <img src="images/Element_5.svg" loading="lazy" alt="Newark game icon" class="features-image">
+            <img src="images/Element_5.svg" loading="lazy" alt="User and server stats image" class="features-image">
             <h3 class="feature-title">NEWARK</h3>
             <ul role="list" class="features-card-list w-list-unstyled">
-              <li>🌆 NEWARK BRICK CITY MODE ACTIVATED 🎮🎵</li>
-              <li>🕹️ Move: Use the joystick to slide around like a main character.</li>
-              <li>🎯 Aim + Shoot: Swipe or tilt your phone, then tap to smack blocks.</li>
-              <li>🎵 Hit the right notes: Pop the blocks that match the song for bonus points.</li>
-              <li>⏱️ Stay on beat: Perfect timing = bigger combos = higher score.</li>
-              <li>🔊 TURN SOUND ON: No audio = no vibes = no wins.</li>
+              <li class="mb-20">🌆 NEWARK BRICK CITY MODE ACTIVATED 🎮🎵</li>
+              <li class="mb-20">🕹️ Move: Use the joystick to slide around like a main character.</li>
+              <li class="mb-20">🎯 Aim + Shoot: Swipe or tilt your phone, then tap to smack blocks.</li>
+              <li class="mb-20">🎵 Hit the right notes: Pop the blocks that match the song for bonus points.</li>
+              <li class="mb-20">⏱️ Stay on beat: Perfect timing = bigger combos = higher score.</li>
+              <li class="mb-20">🔊 TURN SOUND ON: No audio = no vibes = no wins.</li>
             </ul>
             <div class="game-buttons-container">
               <a href="https://game.genz.casino/newark" class="game-button">Play Newark</a>
@@ -513,13 +475,13 @@
         <!-- GAMBA Game Card -->
         <div id="w-node-fddf9fca-70af-5158-5a17-e95a678ba6e5-d9f06085" data-w-id="fddf9fca-70af-5158-5a17-e95a678ba6e5" style="opacity:0" class="features-card">
           <div class="features-card-content-wrapper">
-            <img src="images/Element_6.svg" loading="lazy" alt="Gamba game icon" class="features-image">
+            <img src="images/Element_6.svg" loading="lazy" alt="Moderator free membership adjustment" class="features-image">
             <h3 class="feature-title">GAMBA</h3>
             <ul role="list" class="features-card-list w-list-unstyled">
-              <li>🦐 Gamba is a Solana-based on-chain casino DApp that lets users connect a wallet and play classic provably-fair games using test or real tokens.</li>
-              <li>🎰 All-in-one crypto arcade – Slots, Dice, Flip, Hilo, Mines, Roulette, Plinko, Crash, Blackjack.</li>
-              <li>🔐 Wallet connect ready – Phantom/Solana wallet integration.</li>
-              <li>⚡ Instant gameplay UI – Mobile-friendly, fast loading interface.</li>
+              <li class="mb-20">🦐 Gamba is a Solana-based on-chain casino DApp that lets users connect a wallet and play classic provably-fair games using test or real tokens.</li>
+              <li class="mb-20">🎰 All-in-one crypto arcade – Slots, Dice, Flip, Hilo, Mines, Roulette, Plinko, Crash, Blackjack.</li>
+              <li class="mb-20">🔐 Wallet connect ready – Phantom/Solana wallet integration.</li>
+              <li class="mb-20">⚡ Instant gameplay UI – Mobile-friendly, fast loading interface.</li>
             </ul>
             <div class="game-buttons-container">
               <a href="https://gamba.genz.casino" class="game-button">Play Gamba</a>
@@ -560,7 +522,8 @@
         </div>
       </div>
       <div id="w-node-bb247140-920a-bbc0-09be-352db5d2000b-d9f06085" class="right-grid">
-        <a href="https://tiktok.com/@genzcasino" target="_blank" class="social-icon">🎵</a>
+        <a href="https://twitter.com/genzcasino" target="_blank" class="social-icon"></a>
+        <a href="https://medium.com/luvnft" target="_blank" class="social-icon margin-left"></a>
       </div>
     </div>
   </div>
