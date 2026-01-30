@@ -1043,6 +1043,62 @@ li {
   height: 100%;
 }
 
+/* ===== PIE CHART FIXES ===== */
+/* REMOVE ANY EXISTING .chart-wrapper TEXT STYLES ABOVE AND REPLACE WITH THIS: */
+
+.chart-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  height: 400px !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+}
+
+.chart-wrapper text {
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.4px !important;
+  font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  font-weight: 600 !important;
+  fill: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+  pointer-events: none !important;
+}
+
+/* Mobile fixes - smaller text */
+@media screen and (max-width: 767px) {
+  .chart-wrapper {
+    height: 300px !important;
+  }
+  
+  .chart-wrapper text {
+    font-size: 10px !important;
+    letter-spacing: 0.3px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .chart-wrapper {
+    height: 250px !important;
+  }
+  
+  .chart-wrapper text {
+    font-size: 9px !important;
+    letter-spacing: 0.2px !important;
+  }
+}
+
+/* Desktop fixes - better spacing */
+@media screen and (min-width: 1024px) {
+  .chart-wrapper {
+    height: 450px !important;
+  }
+  
+  .chart-wrapper text {
+    font-size: 13px !important;
+  }
+}
+
 /* ===== RESPONSIVE STYLES ===== */
 
 @media screen and (max-width: 991px) {
@@ -1151,7 +1207,6 @@ li {
     justify-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
   }
 
@@ -1266,6 +1321,10 @@ li {
   .game-button {
     padding: 10px 12px !important;
     font-size: 13px !important;
+  }
+  
+  .chart-wrapper {
+    height: 350px !important;
   }
 }
 
@@ -1406,6 +1465,14 @@ li {
   .game-button {
     padding: 8px 10px !important;
     font-size: 12px !important;
+  }
+  
+  .chart-wrapper {
+    height: 300px !important;
+  }
+  
+  .chart-wrapper text {
+    font-size: 9px !important;
   }
 }
 
@@ -1562,6 +1629,14 @@ li {
     min-height: 44px;
     min-width: 44px;
   }
+  
+  .chart-wrapper {
+    height: 250px !important;
+  }
+  
+  .chart-wrapper text {
+    font-size: 8px !important;
+  }
 }
 
 /* Mobile-specific fixes for hackathon section */
@@ -1633,6 +1708,73 @@ li {
 .container.center {
   overflow: hidden;
   max-width: 100%;
+}
+
+/* ===== CRITICAL FIXES FOR SLOT SECTION ===== */
+
+/* Hide problematic gradients on mobile */
+.mobile-hidden {
+  display: none !important;
+}
+
+/* New wrapper for proper stacking */
+.slot-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  gap: 30px;
+}
+
+/* Fix hackathon-box positioning */
+.hackathon-box {
+  position: relative !important;
+  width: 160px !important;
+  height: 160px !important;
+  margin: 0 auto 30px !important;
+  background: rgba(19, 21, 28, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+/* Fix the image inside */
+.s-image {
+  position: relative !important;
+  width: 80% !important;
+  height: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+/* Fix hackathon-header */
+.hackathon-header {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 600px !important;
+  padding: 40px 30px !important;
+  background: rgba(19, 21, 28, 0.9) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  text-align: center !important;
+  margin: 0 !important;
+  z-index: 5 !important;
+}
+
+/* Fix text styling */
+.hackathon-text {
+  font-size: 20px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 35px !important;
+  padding: 0 10px !important;
+  text-align: center !important;
 }
 
 /* ===== FONT FACES ===== */
@@ -1789,78 +1931,4 @@ li {
     font-size: 28px !important;
     line-height: 1.2 !important;
   }
-}
-/* ===== CRITICAL FIXES FOR SLOT SECTION ===== */
-
-/* Hide problematic gradients on mobile */
-.mobile-hidden {
-  display: none !important;
-}
-
-/* New wrapper for proper stacking */
-.slot-section-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  gap: 30px;
-}
-
-/* Fix hackathon-box positioning */
-.hackathon-box {
-  position: relative !important;
-  width: 160px !important;
-  height: 160px !important;
-  margin: 0 auto 30px !important;
-  background: rgba(19, 21, 28, 0.9) !important;
-  backdrop-filter: blur(10px) !important;
-  border-radius: 20px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  top: auto !important;
-  left: auto !important;
-  transform: none !important;
-}
-
-/* Fix the image inside */
-.s-image {
-  position: relative !important;
-  width: 80% !important;
-  height: auto !important;
-  left: auto !important;
-  transform: none !important;
-}
-
-/* Fix hackathon-header */
-.hackathon-header {
-  position: relative !important;
-  width: 100% !important;
-  max-width: 600px !important;
-  padding: 40px 30px !important;
-  background: rgba(19, 21, 28, 0.9) !important;
-  backdrop-filter: blur(10px) !important;
-  border-radius: 20px !important;
-  text-align: center !important;
-  margin: 0 !important;
-  z-index: 5 !important;
-}
-
-/* Fix text styling */
-.hackathon-text {
-  font-size: 20px !important;
-  line-height: 1.6 !important;
-  margin-bottom: 35px !important;
-  padding: 0 10px !important;
-  text-align
-  .chart-wrapper text {
-  font-size: 14px !important;
-  text-transform: uppercase !important;
-  letter-spacing: .5px !important;
-  font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
-  font-weight: 600 !important;
-  fill: white !important;  /* Critical: Sets text color */
-  pointer-events: none !important;
 }
